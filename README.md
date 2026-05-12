@@ -1,20 +1,30 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Chrono Drift
 
-# Run and deploy your AI Studio app
+Chrono Drift is a stylish, high-speed time-manipulation racing game built with React, Vite, Tailwind CSS, Canvas, and Framer Motion. 
 
-This contains everything you need to run your app locally.
+You subvert the laws of physics as a Chrono Racer, bending time while drifting through expansive neon tracks. Master chronological mechanics to achieve perfect drifts, assert your dominance on the leaderboards, and maneuver through temporal anomalies.
 
-View your app in AI Studio: https://ai.studio/apps/795cba2a-7b19-4920-926a-94dc543677fd
+## Features
 
-## Run Locally
+- **Time Mechanics**: Time-slow for perfect cornering, rewind to recover from crashes, and burst forward with massive speed boosts.
+- **Temporal Momentum**: Execute extensive drifts in slow motion to maximize your multiplier.
+- **On-chain Integrations**: Fully integrated on-chain Leaderboards and SIWE (Sign-In with Ethereum) integrations using Base network.
+- **Trustless Agents**: Implements ERC-8004 for agentic actions on-chain.
+- **Attribution**: Includes ERC-8021 tracking.
 
-**Prerequisites:**  Node.js
+## Technical Stack
 
+- **Frontend Framework**: React 19 + TypeScript
+- **Bundler**: Vite
+- **Styling**: Tailwind CSS, Framer Motion
+- **Web3 Ecosystem**: Wagmi, Viem (Base Mainnet)
+- **State Management**: Zustand
+- **Architecture**: Mobile-first, Full-Stack App via Express for MCP endpoints
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## On-Chain Integrations
+
+All on-chain integrations have been implemented for Base Mainnet.
+
+## License
+
+All rights reserved. (c) Chrono Drift.
