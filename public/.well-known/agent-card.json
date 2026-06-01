@@ -27,6 +27,28 @@
       "description": "Main agent control API"
     }
   ],
+  "skills": [
+    {
+      "name": "get_race_status",
+      "description": "Get the current race status."
+    },
+    {
+      "name": "start_race",
+      "description": "Start a new race."
+    },
+    {
+      "name": "get_leaderboard",
+      "description": "Get the top racers."
+    },
+    {
+      "name": "optimize_speed",
+      "description": "Optimize the time manipulation mechanics for maximum speed."
+    },
+    {
+      "name": "get_track_info",
+      "description": "Get the active temporal anomalies on the track."
+    }
+  ],
   "capabilities": [
     "chrono-drift-mechanics",
     "temporal-navigation",
