@@ -1,8 +1,8 @@
 // ERC-8021: Transaction Attribution
 // Allows specifying attribution and builder codes for dApp transactions.
 
-export const BUILDER_CODE = "bc_67ejiz55";
-export const APP_ATTRIBUTION_CODE = "chrono_drift_game";
+export const BUILDER_CODE = "[BUILDER_CODE]";
+export const APP_ATTRIBUTION_CODE = "[ATTRIBUTION_CODE]";
 
 export interface AttributionDetails {
   builder: string;

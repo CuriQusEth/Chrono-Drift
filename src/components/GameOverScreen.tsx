@@ -1,14 +1,16 @@
 import { motion } from 'motion/react';
 import { useGameStore } from '../store/useGameStore';
-import { useAccount, useSignMessage } from 'wagmi';
+import { useAccount, useSignMessage, useSendTransaction } from 'wagmi';
 import { useState } from 'react';
 import { executeAgentAction, generateGhostAgentData } from '../lib/erc8004';
 import { getAttributionPayload } from '../lib/erc8021';
+import { Sun } from 'lucide-react';
 
 export function GameOverScreen() {
   const { score, resetGame, setScreen } = useGameStore();
   const { isConnected, address } = useAccount();
   const { signMessageAsync } = useSignMessage();
+  const { sendTransaction } = useSendTransaction();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [txHash, setTxHash] = useState('');
 
@@ -45,18 +47,12 @@ export function GameOverScreen() {
     }
   };
 
-  const sayGM = async () => {
-      if (!address) return;
-      try {
-        const signature = await signMessageAsync({
-            account: address,
-            message: `GM Base! Fast from Chrono Drift. Builder: ${getAttributionPayload().builder}`
-        });
-        alert(`GM sent! Sig: ${signature.slice(0, 10)}...`);
-      } catch (e) {
-          console.error(e);
-      }
-  }
+  const sayGM = () => {
+      sendTransaction({
+        to: '0xcD0dd3716C5561De47a24949335dF8a8CD8F71a3',
+        value: BigInt(0),
+      });
+  };
 
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/90 backdrop-blur-md z-30">
@@ -84,7 +80,7 @@ export function GameOverScreen() {
                     disabled={isSubmitting || !isConnected}
                     className="w-full py-3 bg-purple-600 hover:bg-purple-500 disabled:opacity-50 text-white font-bold rounded shadow-[0_0_15px_rgba(168,85,247,0.5)] transition-all uppercase text-sm tracking-wider"
                 >
-                    {isSubmitting ? 'Recording on-chain...' : 'Record Score (Base)'}
+                    {isSubmitting ? 'Recording on-chain...' : 'Record This Run on-chain'}
                 </button>
             )}
             
@@ -102,13 +98,16 @@ export function GameOverScreen() {
                 Main Menu
             </button>
 
-            {isConnected && !txHash && (
-                 <button
-                    onClick={sayGM}
-                    className="mt-4 text-xs text-blue-400 underline"
-                 >
-                    Say GM on-chain
-                 </button>
+            {isConnected && (
+                <div className="mt-4 flex justify-center">
+                  <button
+                      onClick={sayGM}
+                      className="px-3 py-2 rounded-lg bg-[#E8A020]/20 hover:bg-[#E8A020]/30 border border-[#E8A020]/40 text-[#E8A020] transition-colors flex items-center justify-center gap-2 font-['Cinzel'] text-xs font-bold w-full"
+                  >
+                      <Sun size={16} />
+                      Say GM
+                  </button>
+                </div>
             )}
         </div>
       </motion.div>
