@@ -56,7 +56,8 @@
     "anomaly-management",
     "time-manipulation",
     "multi-timeline-automation",
-    "mcp-command-execution"
+    "mcp-command-execution",
+    "base-denim-200ms-blocks"
   ],
   "supportedChains": ["eip155:8453"],
   "active": true,

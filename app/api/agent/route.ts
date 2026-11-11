@@ -16,6 +16,9 @@ export async function GET() {
     status: "active",
     wallet: "0x29536D0bc1004ab274c4F0F59734Ad74D4559b7B",
     platform: "Chrono Drift",
+    network: "Base Mainnet",
+    upgrade: "Denim 200ms Canonical Blocks",
+    chainId: 8453,
     version: "1.0.0"
   }, { headers: CORS_HEADERS });
 }

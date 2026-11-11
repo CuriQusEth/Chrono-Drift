@@ -25,7 +25,7 @@ export function GameOverScreen() {
       // 1. Get SIWE-like signature
       const signature = await signMessageAsync({
         account: address,
-        message: `I am recording my Chrono Drift score of ${Math.floor(score)} on Base Mainnet.`
+        message: `I am recording my Chrono Drift score of ${Math.floor(score)} on Base Mainnet (Denim 200ms).`
       });
       console.log("Signature:", signature);
 
@@ -61,6 +61,11 @@ export function GameOverScreen() {
         animate={{ scale: 1, opacity: 1 }}
         className="bg-gray-900 border border-cyan-500 rounded-xl p-8 max-w-sm w-full mx-4 text-center shadow-[0_0_50px_rgba(0,255,255,0.2)]"
       >
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 mb-3 rounded-full bg-cyan-950/70 border border-cyan-500/40 text-[10px] font-mono text-cyan-300">
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+          BASE MAINNET // DENIM 200ms
+        </div>
+
         <h2 className="text-3xl font-black text-cyan-400 mb-4 uppercase tracking-widest font-sans">Run Complete</h2>
         
         <div className="mb-8">
@@ -70,9 +75,10 @@ export function GameOverScreen() {
 
         <div className="flex flex-col gap-3">
             {txHash ? (
-                <div className="text-xs text-green-400 font-mono bg-green-900/20 border border-green-800 p-2 rounded break-all">
-                    Score recorded!<br/>
-                    Tx: {txHash}
+                <div className="text-xs text-green-400 font-mono bg-green-900/20 border border-green-800 p-2.5 rounded break-all">
+                    <div className="text-[10px] text-cyan-300 font-semibold mb-1">⚡ DENIM CANONICAL 200ms BLOCK CONFIRMED</div>
+                    Score recorded on Base!<br/>
+                    <span className="text-gray-300 text-[11px]">Tx: {txHash.slice(0, 18)}...{txHash.slice(-8)}</span>
                 </div>
             ) : (
                 <button
@@ -80,7 +86,7 @@ export function GameOverScreen() {
                     disabled={isSubmitting || !isConnected}
                     className="w-full py-3 bg-purple-600 hover:bg-purple-500 disabled:opacity-50 text-white font-bold rounded shadow-[0_0_15px_rgba(168,85,247,0.5)] transition-all uppercase text-sm tracking-wider"
                 >
-                    {isSubmitting ? 'Recording on-chain...' : 'Record This Run on-chain'}
+                    {isSubmitting ? 'Confirming in 200ms block...' : 'Record This Run on-chain'}
                 </button>
             )}
             

@@ -25,7 +25,14 @@ export function TitleScreen() {
           <br/>
           DRIFT
         </h1>
-        <p className="text-cyan-300 tracking-[0.3em] text-sm mb-12 uppercase font-mono">Neon Timelines</p>
+        <p className="text-cyan-300 tracking-[0.3em] text-sm mb-4 uppercase font-mono">Neon Timelines</p>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/40 text-xs font-mono text-cyan-300 mb-8">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+          </span>
+          BASE MAINNET · DENIM 200ms
+        </div>
       </motion.div>
 
       <motion.div
